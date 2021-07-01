@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="Test" thread-count="2" parallel="tests" >
+
+    <test name="TestSuite1">
+        <parameter name="browser" value="Edge" />
+        <classes>
+            <class name="JSexecutor" />
+        </classes>
+    </test>
+    <test name="TestSuite2">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="FileUploadTest" />
+        </classes>
+    </test>
+
+
+</suite>
