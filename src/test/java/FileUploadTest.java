@@ -4,6 +4,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,13 +13,14 @@ import java.io.File;
 
 public class FileUploadTest {
     WebDriver driver;
-    @BeforeMethod
+   /* @BeforeMethod
     public void beforeTest() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-    }
+    } */
     @Test
     public void fileUpload() {
+        HtmlUnitDriver driver = new HtmlUnitDriver(true);
         driver.get("http://the-internet.herokuapp.com/upload");
         driver.manage().window().maximize();
         File file = new File("src/Images/illimg.jpeg");
@@ -31,11 +33,8 @@ public class FileUploadTest {
         } catch (StaleElementReferenceException e){
             System.out.println("StaleElementReferenceException ");
         }
+        driver.quit();
     }
 
-    @AfterMethod
-    public void closeDriver() {
-        driver.close();
-    }
 
 }
