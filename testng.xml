@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 
-<suite name="Test" thread-count="2" parallel="tests" >
+<suite name="CrossBrowserTest" thread-count="2" parallel="tests" >
 
     <test name="TestSuite1">
         <parameter name="browser" value="Edge" />
@@ -15,6 +15,11 @@
             <class name="FileUploadTest" />
         </classes>
     </test>
-
+    <test name="TestSuite3">
+        <parameter name="browser" value="Edge" />
+        <classes>
+            <class name="ActionClassTest" />
+        </classes>
+    </test>
 
 </suite>
